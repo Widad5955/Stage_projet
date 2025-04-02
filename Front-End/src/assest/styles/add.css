@@ -1,0 +1,74 @@
+/* Style global */
+body {
+  background-color: #F5F5F5; /* Gris clair */
+  font-family: Arial, sans-serif;
+}
+
+/* Conteneur du formulaire */
+form {
+  max-width: 500px;
+  background: #FFFFFF; /* Blanc */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+}
+
+/* Espacement des éléments */
+.mb-3 {
+  margin-bottom: 15px;
+}
+
+/* Labels */
+.form-label {
+  font-weight: bold;
+  color: #002147; /* Bleu foncé */
+}
+
+/* Champs de saisie */
+.form-control,
+.form-select {
+  border-radius: 6px;
+  border: 1px solid #B8860B; /* Doré */
+  transition: all 0.3s ease-in-out;
+}
+
+/* Effet au focus */
+.form-control:focus,
+.form-select:focus {
+  border-color: #002147; /* Bleu foncé */
+  box-shadow: 0 0 5px rgba(0, 33, 71, 0.5);
+}
+
+/* Bouton principal */
+.btn-primary {
+  background-color: #002147; /* Bleu foncé */
+  border: none;
+  padding: 10px;
+  width: 100%;
+  font-size: 16px;
+  border-radius: 6px;
+  color: #FFFFFF; /* Blanc */
+  transition: background 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #00152E; /* Bleu encore plus foncé pour l'effet hover */
+}
+
+/* Message d'erreur */
+.alert-danger {
+  font-size: 14px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #B8860B; /* Doré */
+  color: #FFFFFF; /* Blanc */
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+  form {
+    max-width: 100%;
+    padding: 15px;
+  }
+}

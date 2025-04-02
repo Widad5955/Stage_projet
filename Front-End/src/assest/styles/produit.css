@@ -1,0 +1,211 @@
+/* Style global */
+body {
+    background-color: #F5F5F5; /* Gris clair */
+    font-family: 'Arial', sans-serif;
+}
+
+/* Titre principal */
+h2 {
+    text-align: center;
+    color: #002147; /* Bleu foncé */
+    margin-bottom: 20px;
+}
+
+/* Bouton Ajouter un article */
+.btn-primary {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #002147; /* Bleu foncé */
+    color: #FFFFFF; /* Blanc */
+    border-radius: 6px;
+    border: none;
+    transition: background 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #00152E; /* Bleu plus foncé */
+}
+
+/* Table des articles */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #FFFFFF; /* Blanc */
+    margin-top: 20px;
+}
+
+.table th {
+    background-color: #002147; /* Bleu foncé */
+    color: white;
+    text-align: center;
+    padding: 12px;
+}
+
+.table td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #B8860B; /* Doré */
+}
+
+/* Centrer le bouton Modifier dans la cellule */
+.table td div {
+    display: flex;
+    justify-content: center; /* Centre le bouton horizontalement */
+    align-items: center;     /* Centre le bouton verticalement */
+    height: 100%;
+}
+
+/* Boutons Actions */
+/* Conteneur pour les boutons d'action */
+.action-buttons {
+    align-items: center;
+    display: flex;
+    justify-content: space-between; /* Les boutons seront espacés */
+    gap: 5px; /* Optionnel, pour ajouter un petit espace entre les boutons */
+}
+
+.btn-warning {
+    background-color: #B8860B; /* Doré */
+    border: none;
+    color: #FFFFFF; /* Blanc */
+    margin-right: 5px;
+    padding: 8px 15px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 6px;
+    transition: background 0.3s;
+}
+
+.btn-warning:hover {
+    background-color: #996B00; /* Doré foncé */
+}
+
+.btn-danger {
+    border: none;
+    color: #FFFFFF; /* Blanc */
+    margin-right: 5px;
+}
+
+.btn-danger:hover {
+    background-color: #ff0000; /* Doré foncé */
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    border: none;
+    width: 100%;
+    text-align: center;
+    color: #FFFFFF; /* Blanc */
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+/* Formulaires */
+form {
+    background: #FFFFFF; /* Blanc */
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Barre de recherche */
+.search-bar {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.search-bar input {
+    width: 100%;
+    max-width: 400px;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #B8860B; /* Doré */
+    transition: border 0.3s;
+}
+
+.search-bar input:focus {
+    border-color: #002147; /* Bleu foncé */
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 33, 71, 0.5);
+}
+
+.btn-secondary {
+    background-color: #B8860B; /* Doré */
+    color: #FFFFFF; /* Blanc */
+    padding: 10px 15px;
+    font-size: 16px;
+    width: 150px;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    transition: all 0.3s ease-in-out;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+}
+
+.btn-secondary:hover {
+    background-color: #996B00; /* Doré foncé */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-secondary:active {
+    background-color: #704C00; /* Encore plus foncé au clic */
+}
+
+.mt-3 {
+    margin-top: 15px;
+}
+.pagination {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+  }
+  
+  .pagination .page-item {
+    margin: 0 5px;
+  }
+  
+  .pagination .page-link {
+    padding: 8px 12px;
+    border: 1px solid #002147;
+    color: #002147;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  
+  .pagination .page-link:hover {
+    background-color: #002147;
+    color: white;
+  }
+  
+  .pagination .active .page-link {
+    background-color: #002147;
+    color: white;
+    border-color: #002147;
+  }
+  
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .btn-primary {
+        font-size: 14px;
+    }
+
+    .table th, .table td {
+        font-size: 14px;
+        padding: 8px;
+    }
+}
