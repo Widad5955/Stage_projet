@@ -16,15 +16,15 @@ const BulletinAffectation = () => {
 
     const storedChoix = localStorage.getItem("choixImpression");
     if (storedChoix) {
-      setAnnexe(storedChoix); // Afficher Annexe / Division / Service selon le choix
+      setAnnexe(storedChoix); 
     }
   }, []);
 
   const handleInputChange = (index, field, value) => {
     const updatedArticles = [...addedArticles];
-    updatedArticles[index][field] = parseInt(value, 10) || 1; // Empêche NaN et valeurs invalides
+    updatedArticles[index][field] = parseInt(value, 10) || 1; 
     setAddedArticles(updatedArticles);
-    localStorage.setItem("selectedArticles", JSON.stringify(updatedArticles)); // Sauvegarde automatique
+    localStorage.setItem("selectedArticles", JSON.stringify(updatedArticles));
   };
 
   const handlePrint = () => {
@@ -55,7 +55,7 @@ const BulletinAffectation = () => {
       </p>
 
       <div className="print-object-section">
-        <strong>{annexe} :</strong> {/* Affiche "Annexe administrative :", "Division :" ou "Service :" */}
+        <strong>{annexe} :</strong> 
         <input type="text" className="paragraph" />
         <input type="text" value={objet} onChange={(e) => setObjet(e.target.value)} className="input-field" placeholder="Décrire l'objet ..." />
       </div>

@@ -15,7 +15,7 @@ const ArticleManager = () => {
 
   const fetchArticles = async () => {
     try {
-      const response = await axios.get("http://192.168.1.66:8000/api/articles");
+      const response = await axios.get("http://127.0.0.1:8000/api/articles");
       setArticles(response.data);
     } catch (error) {
       console.error("Erreur lors du chargement des articles :", error);
@@ -28,7 +28,7 @@ const ArticleManager = () => {
 
   const handleSearchChange = (e) => {
     setSearchQuery(e.target.value);
-    setCurrentPage(0); // Réinitialiser à la première page lors de la recherche
+    setCurrentPage(0); 
   };
 
   const handleCheckboxChange = (article) => {
@@ -40,10 +40,7 @@ const ArticleManager = () => {
     });
   };
 
-  // const handlePrintSelected = () => {
-  //   localStorage.setItem("selectedArticles", JSON.stringify(selectedArticles));
-  //   navigate("/imprimer");
-  // };
+
   const handlePrintSelected = () => {
   if (selectedArticles.length === 0) {
     alert("Veuillez sélectionner au moins un article à imprimer.");

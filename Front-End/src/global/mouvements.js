@@ -19,7 +19,7 @@ const MouvementArticle = () => {
 
   const fetchMouvements = async () => {
     try {
-      const response = await axios.get("http://192.168.1.66:8000/api/mouvements");
+      const response = await axios.get("http://127.0.0.1:8000/api/mouvements");
       setMouvements(response.data);
     } catch (err) {
       setError("Erreur lors du chargement des mouvements");
@@ -49,8 +49,6 @@ const MouvementArticle = () => {
     (a, b) => new Date(b.date_mouvement) - new Date(a.date_mouvement)
   );
   
-
-  // Pagination
   const pageCount = Math.ceil(sortedMouvements.length / articlesPerPage);
   const offset = currentPage * articlesPerPage;
   const currentMouvements = sortedMouvements.slice(offset, offset + articlesPerPage);
@@ -70,7 +68,7 @@ const MouvementArticle = () => {
         <>
           <h2>Gestion des Mouvements</h2>
           <SearchBarMouv searchQuery={searchQuery} onSearchChange={handleSearchChange} />
-          <Link to={`/addMouvements`} className="btn btn-primary mb-3">
+          <Link to="/addMouvements" className="btn btn-primary mb-3">
             Ajouter un Mouvement
           </Link>
         </>
@@ -123,7 +121,7 @@ const MouvementArticle = () => {
                   <td>{mouvement.quantité}</td>
                   <td>
                     <div className="d-flex">
-                      <Link to={`/editMouvements`} state={{ mouvement }} className="btn btn-warning btn-sm">
+                      <Link to="/editMouvements" state={{ mouvement }} className="btn btn-warning btn-sm">
                         Modifier
                       </Link>
                     </div>

@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Link, useLocation ,useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const EditMouvementForm = ({ fetchMouvements, setShowEditForm }) => {
   const location = useLocation();
   const navigate = useNavigate();
-  const { mouvement } = location.state || {}; // Vérifier si mouvement est présent dans le state
+  const { mouvement } = location.state || {}; 
   const [formData, setFormData] = useState({
     n_serie: "",
     date_mouvement: "",
@@ -14,10 +14,8 @@ const EditMouvementForm = ({ fetchMouvements, setShowEditForm }) => {
     nature: "",
     demande: "",
     quantité: "",
-    operation: "",  // 🔹 Ajout du champ "operation"
+    operation: "",  
   });
-  
-
 
   useEffect(() => {
     if (mouvement) {
@@ -25,7 +23,7 @@ const EditMouvementForm = ({ fetchMouvements, setShowEditForm }) => {
         n_serie: mouvement.n_serie,
         date_mouvement: mouvement.date_mouvement,
         service: mouvement.service,
-        nature: mouvement.nature || "",  // 🔹 S'assurer que la valeur est bien remplie
+        nature: mouvement.nature || "", 
         demande: mouvement.demande,
         quantité: mouvement.quantité,
         operation: mouvement.operation || "",
@@ -33,8 +31,6 @@ const EditMouvementForm = ({ fetchMouvements, setShowEditForm }) => {
     }
   }, [mouvement]);
   
-  
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -46,12 +42,12 @@ const EditMouvementForm = ({ fetchMouvements, setShowEditForm }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`http://192.168.1.66:8000/api/mouvements/${mouvement.id}`, formData);
-      fetchMouvements();
-      setShowEditForm(false);
+      await axios.put(`http://127.0.0.1:8000/api/mouvements/${mouvement.id}`, formData);
+      navigate('/mouvements');
+
     } catch (error) {
-      console.error("Erreur lors de la modification du mouvement :", error);
-      navigate('/mouvements')
+      console.error("Erreur lors de la modification du mouvement :", error);     
+
     }
   };
 
@@ -72,22 +68,37 @@ const EditMouvementForm = ({ fetchMouvements, setShowEditForm }) => {
           <input type="text" name="service" value={formData.service} onChange={handleChange} className="form-control" required />
         </div>
         <div className="mb-3">
-  <label className="form-label">Nature</label>
-  <select
-    name="nature"
-    value={formData.nature}  // 🔹 Assure que la valeur sélectionnée est bien celle du mouvement
-    onChange={handleChange}
-    className="form-select"
-    required
-  >
-    <option value="depot">Depot</option>
-    <option value="retraite">Retraite</option>
-  </select>
-</div>
-
-
-
-
+          <label className="form-label">Nature</label>
+          <div className="form-check">
+            <input
+              className="form-check-input"
+              type="radio"
+              name="nature"
+              id="natureDepot"
+              value="depot"
+              checked={formData.nature === "depot"}
+              onChange={handleChange}
+              required
+            />
+            <label className="form-check-label" htmlFor="natureDepot">
+              Depot
+            </label>
+          </div>
+          <div className="form-check">
+            <input
+              className="form-check-input"
+              type="radio"
+              name="nature"
+              id="natureRetraite"
+              value="retraite"
+              checked={formData.nature === "retraite"}
+              onChange={handleChange}
+            />
+            <label className="form-check-label" htmlFor="natureRetraite">
+              Retraite
+            </label>
+          </div>
+        </div>
         <div className="mb-3">
           <label className="form-label">Demande</label>
           <input type="text" name="demande" value={formData.demande} onChange={handleChange} className="form-control" required />

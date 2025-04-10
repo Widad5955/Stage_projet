@@ -8,16 +8,16 @@ const AddMouvementForm = () => {
     n_serie: '',
     date_mouvement: '',
     service: '',
-    nature: 'depot', // Valeur par défaut pour nature
+    nature: 'depot', 
     demande: '',
-    quantité: 1, // Valeur par défaut pour quantité
+    quantité: 1, 
   });
 
-  const [articles, setArticles] = useState([]); // État pour stocker les articles
+  const [articles, setArticles] = useState([]); 
   const [error, setError] = useState(null);
-  const navigate = useNavigate(); // Pour naviguer après l'ajout
+  const navigate = useNavigate(); 
   useEffect(() => {
-    // Définir la date par défaut
+    
     const currentDate = new Date().toISOString().split('T')[0];
     setFormData((prevData) => ({
       ...prevData,
@@ -25,18 +25,17 @@ const AddMouvementForm = () => {
     }));
   
     // Charger les articles depuis l'API
-    axios.get('http://192.168.1.66:8000/api/articles')
+    axios.get('http://127.0.0.1:8000/api/articles')
       .then(response => {
-        console.log("Données reçues:", response.data); // Debug
+        console.log("Données reçues"); 
         setArticles(response.data);
       })
       .catch(error => {
-        console.error("Erreur API:", error); // Afficher l'erreur exacte
+        console.error("Erreur API:", error); 
         setError("Erreur lors du chargement des articles");
       });
   
-  }, []); // <<< Ajout de la parenthèse fermante et du tableau de dépendances
-  
+  }, []);
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -48,8 +47,8 @@ const AddMouvementForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://192.168.1.66:8000/api/mouvements', formData);
-      navigate('/mouvements'); // Rediriger après l'ajout
+      await axios.post('http://127.0.0.1:8000/api/mouvements', formData);
+      navigate('/mouvements'); 
     } catch (error) {
       setError('Erreur lors de l\'ajout du mouvement');
     }

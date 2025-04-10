@@ -2,7 +2,7 @@
 import React from "react";
 import "../assest/styles/header.css";
 import logo from "../assest/images/logo.png";
-import { Link } from "react-router-dom"; // Importer Link
+import { Link } from "react-router-dom"; 
 const Header = () => {
   return (
     <header className="header">

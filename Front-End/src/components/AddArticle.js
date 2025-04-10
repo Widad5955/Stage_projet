@@ -38,13 +38,14 @@ const navigate = useNavigate();
 
     let cleanedData = { ...formData };
     if (cleanedData.inv === "") {
-        delete cleanedData.inv; // Supprime le champ si vide
+        delete cleanedData.inv;
     }
 
 
     try {
-        const response = await axios.post("http://192.168.1.66:8000/api/articles", cleanedData);
-
+      console.log("Données envoyées ");
+      const response = await axios.post("http://127.0.0.1:8000/api/articles", cleanedData);
+      
         if (response.status === 201) {
             setFormData({
                 categorie_produit: "",
@@ -62,9 +63,14 @@ const navigate = useNavigate();
             setError("Échec de l'ajout de l'article.");
         }
     }
-     catch (error) {
-        setError("Erreur lors de l'ajout de l'article. Veuillez réessayer.");
-    }
+    catch (error) {
+
+          console.error("Erreur:", error.message);
+          setError("Une erreur inconnue est survenue.");
+      
+  }
+  
+  
 };
 
   

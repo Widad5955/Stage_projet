@@ -18,7 +18,7 @@ const EditArticleForm = ({ fetchArticles, setShowEditForm }) => {
     date_entree: '',
   });
 
-  // Mettre à jour formData lorsque l'article change
+
   useEffect(() => {
     if (article) {
       setFormData({
@@ -28,7 +28,7 @@ const EditArticleForm = ({ fetchArticles, setShowEditForm }) => {
         source_produit: article.source_produit,
         etat_produit: article.etat_produit,
         date_entree: article.date_entree,
-        inv: article.inv || '',  // Assurer que inv est présent
+        inv: article.inv || '',  
       });
     }
   }, [article]);
@@ -44,7 +44,6 @@ const EditArticleForm = ({ fetchArticles, setShowEditForm }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Vérifiez que `numero_serie` est bien présent dans les données
     if (!formData.numero_serie) {
       console.error("Le numero_serie est requis");
       return;
@@ -53,13 +52,13 @@ const EditArticleForm = ({ fetchArticles, setShowEditForm }) => {
     try {
       // Mettre à jour l'article avec les nouvelles données (formData)
       const response = await axios.put(
-        `http://192.168.1.66:8000/api/articles/${formData.numero_serie}`, // Utilisation de formData pour envoyer les données
+        `http://127.0.0.1:8000/api/articles/${formData.numero_serie}`, // Utilisation de formData pour envoyer les données
         formData // Envoi des données mises à jour
       );
-      console.log('Article modifié avec succès:', response.data);
+      console.log('Article modifié avec succès:');
       navigate('/articles');
     } catch (error) {
-      console.error('Erreur lors de la modification de l\'article:', error.response);
+      console.error('Erreur lors de la modification de l\'article:');
     }
   };
 
